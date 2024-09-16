@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import {Script, console} from "forge-std/Script.sol";
 import {ERC20Logger} from "../src/ERC20Logger.sol";
 
-contract CounterScript is Script {
+contract LoggerScript is Script {
     ERC20Logger public logger;
 
     function setUp() public {}
