@@ -6,6 +6,20 @@ This is a simple proxy contract that allows to log metadata when transferring ER
 
 Install foundry [here](https://book.getfoundry.sh/getting-started/installation).
 
+### Rust library
+
+Regenerate bindings:
+
+```shell
+forge bind --bindings-path logger-lib/src/bindings --module
+```
+
+Run tests:
+
+```shell
+cargo test
+```
+
 ### Build
 
 ```shell
