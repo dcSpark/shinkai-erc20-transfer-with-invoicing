@@ -11,13 +11,7 @@ Install foundry [here](https://book.getfoundry.sh/getting-started/installation).
 Regenerate bindings:
 
 ```shell
-forge bind --bindings-path logger-lib/src/bindings --module
-```
-
-Run tests:
-
-```shell
-cargo test
+$ forge bind --bindings-path logger-lib/src/bindings --module
 ```
 
 ### Build
@@ -29,6 +23,7 @@ $ forge build
 ### Test
 
 ```shell
+$ cargo test
 $ forge test
 ```
 

@@ -47,6 +47,7 @@ dependencies = [
  "alloy-eips",
  "alloy-genesis",
  "alloy-network",
+ "alloy-node-bindings",
  "alloy-provider",
  "alloy-pubsub",
  "alloy-rpc-client",
@@ -246,6 +247,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "alloy-node-bindings"
+version = "0.3.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "41eb6fd2c70b076b0953d05ff1d2814fc370629301676a578519f8769cc2bc82"
+dependencies = [
+ "alloy-genesis",
+ "alloy-primitives",
+ "k256",
+ "rand",
+ "serde_json",
+ "tempfile",
+ "thiserror",
+ "tracing",
+ "url",
+]
+
+[[package]]
 name = "alloy-primitives"
 version = "0.8.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -279,10 +297,13 @@ dependencies = [
  "alloy-json-rpc",
  "alloy-network",
  "alloy-network-primitives",
+ "alloy-node-bindings",
  "alloy-primitives",
  "alloy-pubsub",
  "alloy-rpc-client",
+ "alloy-rpc-types-anvil",
  "alloy-rpc-types-eth",
+ "alloy-signer-local",
  "alloy-transport",
  "alloy-transport-http",
  "alloy-transport-ipc",
@@ -378,6 +399,17 @@ checksum = "22045187a5ebf5b2af3f8b6831b66735b6556c5750ec5790aeeb45935260c1c2"
 dependencies = [
  "alloy-rpc-types-engine",
  "alloy-rpc-types-eth",
+ "alloy-serde",
+ "serde",
+]
+
+[[package]]
+name = "alloy-rpc-types-anvil"
+version = "0.3.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "578d9ccad4e8510d32cc2810d05e01a232ccd79a4a6df60d257466897b43b013"
+dependencies = [
+ "alloy-primitives",
  "alloy-serde",
  "serde",
 ]
@@ -1689,6 +1721,8 @@ name = "logger-lib"
 version = "0.1.0"
 dependencies = [
  "alloy",
+ "alloy-sol-types",
+ "tokio",
 ]
 
 [[package]]

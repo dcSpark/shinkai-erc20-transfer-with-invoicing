@@ -4,4 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-alloy = { version = "0.3.5", features = ["full"] }
+alloy = { version = "0.3.5", features = ["full", "node-bindings"] }
+alloy-sol-types = "0.8.3"
+tokio = "1.40.0"
