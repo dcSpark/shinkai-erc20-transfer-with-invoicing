@@ -1,13 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
 
-interface IERC20 {
-    function transferFrom(
-        address from,
-        address to,
-        uint256 value
-    ) external returns (bool);
-}
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
+error TransferFailed();
 
 contract ERC20Logger {
     event MetadataLogged(
@@ -23,9 +19,15 @@ contract ERC20Logger {
         address recipient,
         uint256 amount,
         string calldata metadata
-    ) external {
+    ) external returns (bool) {
         emit MetadataLogged(msg.sender, recipient, token, amount, metadata);
 
-        token.transferFrom(msg.sender, recipient, amount);
+        bool success = token.transferFrom(msg.sender, recipient, amount);
+
+        if (!success) {
+            revert TransferFailed();
+        }
+
+        return success;
     }
 }
