@@ -7,19 +7,13 @@ error TransferFailed();
 
 contract ERC20Logger {
     event MetadataLogged(
-        address indexed from,
-        address indexed to,
-        IERC20 indexed token,
-        uint256 amount,
-        string metadata
+        address indexed from, address indexed to, IERC20 indexed token, uint256 amount, string metadata
     );
 
-    function transferWithMetadata(
-        IERC20 token,
-        address recipient,
-        uint256 amount,
-        string calldata metadata
-    ) external returns (bool) {
+    function transferWithMetadata(IERC20 token, address recipient, uint256 amount, string calldata metadata)
+        external
+        returns (bool)
+    {
         emit MetadataLogged(msg.sender, recipient, token, amount, metadata);
 
         bool success = token.transferFrom(msg.sender, recipient, amount);

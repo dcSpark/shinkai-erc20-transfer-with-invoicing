@@ -24,20 +24,9 @@ contract CounterTest is Test {
         token.approve(address(logger), amount);
 
         vm.expectEmit(true, true, true, true);
-        emit ERC20Logger.MetadataLogged(
-            address(this),
-            recipient,
-            token,
-            amount,
-            "test metadata"
-        );
+        emit ERC20Logger.MetadataLogged(address(this), recipient, token, amount, "test metadata");
 
-        bool success = logger.transferWithMetadata(
-            token,
-            recipient,
-            amount,
-            "test metadata"
-        );
+        bool success = logger.transferWithMetadata(token, recipient, amount, "test metadata");
 
         assertTrue(success);
     }
